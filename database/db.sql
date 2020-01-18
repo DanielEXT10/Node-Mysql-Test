@@ -1,3 +1,7 @@
+--show databases
+SHOW DATABASES;
+
+--to select our database   
 use crud_mysql;
 
 CREATE TABLE customer(
@@ -7,6 +11,7 @@ CREATE TABLE customer(
     phone VARCHAR(15)
 );
 
+-- to show tablas
 SHOW TABLES;
 
 describe customer;

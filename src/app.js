@@ -7,9 +7,8 @@ const myConnection = require('express-myconnection');
 
 //settings
 app.set('port', process.env.PORT || 3000);
-
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'))
 
 //importing routes
 const indexRoutes = require('./routes/index.js');
@@ -19,15 +18,19 @@ app.use(morgan('dev'));
 app.use(myConnection(mysql, {
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: '961Ap101*1',
     port:3306,
     database: 'crud_mysql'
-}, 'single'));
+},  'single'));
+app.use(express.urlencoded({extended: false}));
 
 //Routes
-app.use('/', indexRoutes);  
+app.use('/', indexRoutes); //ejecutamos las rutas amacenadas en index.js 
 
-app.listen(app.get('port'), () =>{
+//static files
+app.use(express.static(path.join(__dirname, 'public')));
+//Starting server
+app.listen(app.get('port'), () => {
     console.log('Server on port 3000');
 });
 
