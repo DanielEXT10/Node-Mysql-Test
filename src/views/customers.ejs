@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <pre>
+        <%= data%>
+    </pre>
 
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -18,6 +21,31 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-7">
+
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>n°</th>
+                            <th>Name</th>
+                            <th>Addres</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            <%for(var i =0; i < data.lenght; i++){%>
+                                <tr>
+                                    <td><%=(i+1)%></td>
+                                    <td><%=data[i].name%></td>
+                                    <td><%=data[i].address%></td>
+                                    <td><%=data[i].phone%></td>
+                                </tr>
+                            <% }%>
+
+                       
+                    </tbody>
+                </table>
 
             </div>
             <div class="col-md-5">
